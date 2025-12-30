@@ -1,4 +1,32 @@
+# Robots.txt for KARV & ASSOCIATES LLP
+# Chartered Accountants Website
+
 User-agent: *
 Allow: /
+Allow: /index.html
+Allow: /css/
+Allow: /js/
+Allow: /fonts/
+Allow: /img/
+Disallow: /*.json$
+Disallow: /admin/
+Disallow: /private/
 
-Sitemap: https://www.viralme.eu/sitemap.xml
+# Sitemap location
+Sitemap: https://www.karvindia.com/sitemap.xml
+
+# Crawl delay
+Crawl-delay: 1
+
+# Request rate
+Request-rate: 1/10s
+
+# Google specific
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Bing specific
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
