@@ -171,22 +171,69 @@
   </div>
 </nav>
 
-<!-- Banner Section -->
-<div class="banner">
-  <div class="container">
-    <h1>WELCOME TO K A R V & ASSOCIATES LLP</h1>
-    <p>Premier Chartered Accountants Firm in India | Audit • Taxation • Advisory Services</p>
-  </div>
-</div>
-
-<!-- Login Section -->
-<div class="container">
-  <div class="login-section" id="login">
-    <h4>Client / Staff Login</h4>
-    <div>
-      <input type="text" placeholder="User ID">
-      <input type="password" placeholder="Password">
-      <button type="button">Login</button>
+<!-- Banner Section with Carousel -->
+<div class="banner-carousel-section">
+  <div class="carousel-container">
+    <div class="carousel-slide" style="display: flex;">
+      <img src="img/slider1.jpg" alt="Professional Services" class="carousel-image">
+    </div>
+    <div class="carousel-slide">
+      <img src="img/slider2.jpg" alt="Financial Advisory" class="carousel-image">
+    </div>
+    <div class="carousel-slide">
+      <img src="img/slider3.jpg" alt="Compliance Services" class="carousel-image">
+    </div>
+    <div class="carousel-slide">
+      <img src="img/b1.jpg" alt="Taxation Services" class="carousel-image">
+    </div>
+    <div class="carousel-slide">
+      <img src="img/b2.jpg" alt="Audit Services" class="carousel-image">
+    </div>
+    <div class="carousel-slide">
+      <img src="img/b3.jpg" alt="GST Services" class="carousel-image">
+    </div>
+    <div class="carousel-slide">
+      <img src="img/b4.jpg" alt="Corporate Finance" class="carousel-image">
+    </div>
+    
+    <!-- Carousel Controls -->
+    <div class="carousel-controls">
+      <button class="carousel-btn carousel-speed-down" title="Slow Down" onclick="decreaseSpeed()">
+        <i class="fa fa-arrow-down"></i>
+      </button>
+      <button class="carousel-btn carousel-pause" title="Pause" onclick="pauseCarousel()">
+        <i class="fa fa-pause"></i>
+      </button>
+      <button class="carousel-btn carousel-play" title="Play" onclick="playCarousel()" style="display:none;">
+        <i class="fa fa-play"></i>
+      </button>
+      <button class="carousel-btn carousel-speed-up" title="Speed Up" onclick="increaseSpeed()">
+        <i class="fa fa-arrow-up"></i>
+      </button>
+    </div>
+    
+    <!-- Carousel Indicators -->
+    <div class="carousel-indicators">
+      <div class="indicator" onclick="currentSlide(1)"></div>
+      <div class="indicator" onclick="currentSlide(2)"></div>
+      <div class="indicator" onclick="currentSlide(3)"></div>
+      <div class="indicator" onclick="currentSlide(4)"></div>
+      <div class="indicator" onclick="currentSlide(5)"></div>
+      <div class="indicator" onclick="currentSlide(6)"></div>
+      <div class="indicator" onclick="currentSlide(7)"></div>
+    </div>
+    
+    <!-- Login Box Inside Banner -->
+    <div class="banner-login-box">
+      <div class="login-inner">
+        <h4>Client / Staff Login</h4>
+        <input type="text" id="userId" placeholder="User ID" class="login-input">
+        <input type="password" id="password" placeholder="Password" class="login-input">
+        <button class="login-button" onclick="handleLogin()">Login</button>
+        <div style="margin-top: 15px; text-align: center;">
+          <a href="#" style="color: #2c5aa0; font-size: 12px; text-decoration: none;">Forgot Password?</a>
+        </div>
+      </div>
     </div>
   </div>
 </div>

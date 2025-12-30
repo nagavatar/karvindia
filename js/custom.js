@@ -4,11 +4,20 @@ Professional Services Website - Custom JavaScript
 Updated: December 2025
 -------------------------------------------------------*/
 
+// Carousel variables
+let carouselIndex = 0;
+let carouselAutoplay = true;
+let carouselSpeed = 3000; // milliseconds
+let carouselInterval;
+
 $(document).ready(function() {
+    // Initialize carousel
+    initCarousel();
+    
     // Smooth scroll for navigation links
     $('a[href*="#"]').on('click', function(e) {
         var href = $(this).attr('href');
-        if ($(href).length > 0) {
+        if ($(href).length > 0 && href !== '#' && !href.startsWith('#carousel')) {
             e.preventDefault();
             $('html, body').animate({
                 scrollTop: $(href).offset().top - 100
@@ -34,9 +43,9 @@ $(document).ready(function() {
     });
 
     // Login form handling
-    $('.login-section button').on('click', function() {
-        var userId = $('.login-section input[type="text"]').val();
-        var password = $('.login-section input[type="password"]').val();
+    function handleLogin() {
+        var userId = $('#userId').val();
+        var password = $('#password').val();
         
         if (userId === '' || password === '') {
             alert('Please enter both User ID and Password');
@@ -45,7 +54,9 @@ $(document).ready(function() {
         
         // Here you can add your login logic
         console.log('Login attempt:', userId);
-    });
+        alert('Login functionality - redirect to secure portal');
+    }
+    window.handleLogin = handleLogin;
 
     // Service box hover effect
     $('.service-box').on('mouseenter', function() {
@@ -72,6 +83,109 @@ $(document).ready(function() {
     handleResponsive();
     $(window).on('resize', handleResponsive);
 });
+
+// Initialize Carousel
+function initCarousel() {
+    carouselIndex = 0;
+    showSlide(carouselIndex);
+    startAutoplay();
+}
+
+// Show specific slide
+function showSlide(n) {
+    var slides = document.querySelectorAll('.carousel-slide');
+    var indicators = document.querySelectorAll('.indicator');
+    
+    if (n >= slides.length) {
+        carouselIndex = 0;
+    }
+    if (n < 0) {
+        carouselIndex = slides.length - 1;
+    }
+    
+    slides.forEach(slide => slide.classList.remove('active'));
+    indicators.forEach(ind => ind.classList.remove('active'));
+    
+    if (slides.length > 0) {
+        slides[carouselIndex].classList.add('active');
+        if (indicators.length > 0) {
+            indicators[carouselIndex].classList.add('active');
+        }
+    }
+}
+
+// Navigate to current slide
+function currentSlide(n) {
+    carouselIndex = n - 1;
+    showSlide(carouselIndex);
+    resetAutoplay();
+}
+
+// Next slide
+function nextSlide() {
+    carouselIndex++;
+    showSlide(carouselIndex);
+}
+
+// Previous slide
+function prevSlide() {
+    carouselIndex--;
+    showSlide(carouselIndex);
+}
+
+// Start autoplay
+function startAutoplay() {
+    if (carouselAutoplay) {
+        if (carouselInterval) {
+            clearInterval(carouselInterval);
+        }
+        carouselInterval = setInterval(nextSlide, carouselSpeed);
+    }
+}
+
+// Reset autoplay
+function resetAutoplay() {
+    if (carouselAutoplay) {
+        clearInterval(carouselInterval);
+        startAutoplay();
+    }
+}
+
+// Pause carousel
+function pauseCarousel() {
+    carouselAutoplay = false;
+    clearInterval(carouselInterval);
+    $('.carousel-pause').hide();
+    $('.carousel-play').show();
+}
+window.pauseCarousel = pauseCarousel;
+
+// Play carousel
+function playCarousel() {
+    carouselAutoplay = true;
+    $('.carousel-play').hide();
+    $('.carousel-pause').show();
+    startAutoplay();
+}
+window.playCarousel = playCarousel;
+
+// Increase carousel speed
+function increaseSpeed() {
+    if (carouselSpeed > 500) {
+        carouselSpeed -= 500;
+        resetAutoplay();
+    }
+}
+window.increaseSpeed = increaseSpeed;
+
+// Decrease carousel speed
+function decreaseSpeed() {
+    if (carouselSpeed < 5000) {
+        carouselSpeed += 500;
+        resetAutoplay();
+    }
+}
+window.decreaseSpeed = decreaseSpeed;
 
 // Animate counter numbers
 function animateCounters() {
