@@ -20,8 +20,9 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="KARV & ASSOCIATES LLP - Chartered Accountants">
   <meta name="twitter:description" content="Professional Audit, Taxation, GST, and Corporate Advisory Services in India">
-
   <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="shortcut icon" href="favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="favicon.png">
   <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="css/style.css" rel="stylesheet" type="text/css">
   <link href="css/font-awesome.css" rel="stylesheet" type="text/css">
@@ -34,24 +35,25 @@
     .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
     
     /* Header */
-    header { background-color: #1a3a52; color: white; padding: 20px 0; }
-    .header-content { display: flex; justify-content: space-between; align-items: center; }
-    .logo { font-size: 24px; font-weight: bold; letter-spacing: 2px; }
-    .contact-info { font-size: 14px; text-align: right; }
+    header { background-color: #1a3a52; color: white; padding: 8px 0 4px 0; }
+    .header-content { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 0; }
+    .logo { font-size: 24px; font-weight: bold; letter-spacing: 2px; display: flex; align-items: center; gap: 10px; margin-bottom: 0; }
+    .logo img { height: 50px; width: 50px; display: block; }
+    .contact-info { font-size: 14px; text-align: right; margin-bottom: 0; }
     .contact-info p { margin: 5px 0; }
     
     /* Top Navigation */
-    .top-nav { background-color: #0d1f2d; border-bottom: 1px solid #2c5aa0; }
-    .top-nav .container { display: flex; justify-content: space-between; flex-wrap: wrap; }
-    .top-nav a { color: white; padding: 10px 15px; display: inline-block; text-decoration: none; font-size: 13px; }
-    .top-nav a:hover { background-color: #1a3a52; }
+    .top-nav { background-color: #0d1f2d; border-bottom: 2px solid #2c5aa0; padding: 4px 0; margin: 0; }
+    .top-nav .container { display: flex; justify-content: space-between; flex-wrap: wrap; max-width: 100%; align-items: center; padding: 0 20px; }
+    .top-nav a { color: white; padding: 8px 15px; display: inline-block; text-decoration: none; font-size: 13px; white-space: nowrap; }
+    .top-nav a:hover { background-color: #1a3a52; transition: background-color 0.3s ease; }
     
     /* Main Navigation */
-    nav.main-nav { background-color: #2c5aa0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-    nav.main-nav .container { display: flex; flex-wrap: wrap; }
-    nav.main-nav a { color: white; padding: 12px 18px; display: inline-block; text-decoration: none; border-right: 1px solid rgba(255,255,255,0.2); }
+    nav.main-nav { background-color: #2c5aa0; box-shadow: 0 4px 8px rgba(0,0,0,0.2); padding: 0; margin: 0; }
+    nav.main-nav .container { display: flex; flex-wrap: wrap; max-width: 100%; align-items: center; padding: 0 20px; }
+    nav.main-nav a { color: white; padding: 11px 14px; display: inline-block; text-decoration: none; border-right: 1px solid rgba(255,255,255,0.2); white-space: nowrap; font-weight: 500; font-size: 13px; }
     nav.main-nav a:last-child { border-right: none; }
-    nav.main-nav a:hover { background-color: #1a3a52; }
+    nav.main-nav a:hover { background-color: #1a3a52; transition: background-color 0.3s ease; }
     
     /* Banner */
     .banner { background: linear-gradient(135deg, #1a3a52 0%, #2c5aa0 100%); color: white; padding: 60px 20px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
@@ -125,16 +127,57 @@
       nav.main-nav .container { justify-content: center; flex-wrap: wrap; }
       nav.main-nav a { padding: 10px 12px; font-size: 12px; }
     }
+    /* Sticky header and nav */
+    .sticky-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      z-index: 1030;
+      margin: 0;
+      padding: 0;
+    }
+    .sticky-topnav {
+      position: fixed;
+      top: 70px;
+      left: 0;
+      right: 0;
+      width: 100%;
+      z-index: 1025;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+      margin: 0;
+      padding: 0;
+    }
+    .sticky-mainnav {
+      position: fixed;
+      top: 105px;
+      left: 0;
+      right: 0;
+      width: 100%;
+      z-index: 1020;
+      margin: 0;
+      padding: 0;
+    }
+    body { padding-top: 150px; margin: 0; }
+    @media (max-width: 768px) {
+      .sticky-header, .sticky-topnav, .sticky-mainnav {
+        position: static;
+        top: auto;
+        width: 100%;
+      }
+      body { padding-top: 0; }
+    }
   </style>
 </head>
 
 <body>
 
 <!-- Header -->
-<header>
+<header class="sticky-header">
   <div class="container">
     <div class="header-content">
-      <div class="logo">K A R V & ASSOCIATES LLP</div>
+      <div class="logo"><a href="#home" onclick="scrollToTop(); return false;" style="color:inherit; text-decoration:none; display: flex; align-items: center; gap: 10px;"><img src="favicon.png" alt="KARV & Associates Logo" style="height: 50px; width: 50px;">K A R V & ASSOCIATES LLP</a></div>
       <div class="contact-info">
         <p>Chartered Accountants | India</p>
         <p style="margin: 5px 0;">📞 Contact: +91-XXXX-XXXX-XXXX | 📧 info@karvindia.com</p>
@@ -144,7 +187,7 @@
 </header>
 
 <!-- Top Navigation -->
-<div class="top-nav">
+<div class="top-nav sticky-topnav">
   <div class="container">
     <div>
       <a href="#home">Home</a>
@@ -160,7 +203,7 @@
 </div>
 
 <!-- Main Navigation -->
-<nav class="main-nav">
+<nav class="main-nav sticky-mainnav">
   <div class="container">
     <a href="#income-tax">Income Tax</a>
     <a href="#gst">GST Services</a>
@@ -278,42 +321,42 @@
       <i class="fa fa-file-text"></i>
       <h3>Income Tax</h3>
       <p>Expert income tax planning, filing, and representation before tax authorities. We help minimize tax liability while ensuring full compliance with the Indian Income Tax Act.</p>
-      <a href="#">Learn More →</a>
+      <a href="#" onclick="openServiceModal('income-tax'); return false;">Learn More →</a>
     </div>
 
     <div class="service-box" id="gst">
       <i class="fa fa-calculator"></i>
       <h3>GST Services</h3>
       <p>Complete GST compliance, registration, return filing, and advisory services. We help businesses navigate complex GST regulations and optimize tax positions effectively.</p>
-      <a href="#">Learn More →</a>
+      <a href="#" onclick="openServiceModal('gst'); return false;">Learn More →</a>
     </div>
 
     <div class="service-box" id="tds">
       <i class="fa fa-list-alt"></i>
       <h3>TDS & Fringe Benefit Tax</h3>
       <p>Tax Deducted at Source (TDS) and Fringe Benefit Tax calculations, deposits, and compliance management for all applicable sections under the Income Tax Act.</p>
-      <a href="#">Learn More →</a>
+      <a href="#" onclick="openServiceModal('tds'); return false;">Learn More →</a>
     </div>
 
     <div class="service-box" id="accounting">
       <i class="fa fa-book"></i>
       <h3>Accounting Services</h3>
       <p>Complete accounting solutions including bookkeeping, financial statement preparation, and accounts maintenance as per Indian Accounting Standards (Ind-AS).</p>
-      <a href="#">Learn More →</a>
+      <a href="#" onclick="openServiceModal('accounting'); return false;">Learn More →</a>
     </div>
 
     <div class="service-box" id="corporate">
       <i class="fa fa-building-o"></i>
       <h3>Corporate Services</h3>
       <p>Company registration, secretarial compliance, corporate governance, and regulatory compliance services for companies, LLPs, and partnerships of all sizes.</p>
-      <a href="#">Learn More →</a>
+      <a href="#" onclick="openServiceModal('corporate'); return false;">Learn More →</a>
     </div>
 
     <div class="service-box" id="finance">
       <i class="fa fa-bar-chart"></i>
       <h3>Corporate Finance</h3>
       <p>Project financing, financial advisory, merger & acquisition support, and financial restructuring services designed for growth-focused enterprises.</p>
-      <a href="#">Learn More →</a>
+      <a href="#" onclick="openServiceModal('finance'); return false;">Learn More →</a>
     </div>
   </div>
 </div>
@@ -529,8 +572,117 @@
   </div>
 </footer>
 
+
+<!-- Service Modal -->
+<div id="serviceModal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.5); z-index:9999; align-items:center; justify-content:center;">
+  <div id="serviceModalContent" style="background:#fff; max-width:500px; margin:40px auto; padding:30px 25px 20px 25px; border-radius:8px; position:relative; box-shadow:0 8px 32px rgba(0,0,0,0.25);">
+    <button onclick="closeServiceModal()" style="position:absolute; top:10px; right:15px; background:none; border:none; font-size:22px; color:#888; cursor:pointer;">&times;</button>
+    <div id="serviceModalBody"></div>
+  </div>
+</div>
+
 <script src="js/bootstrap.min.js"></script>
 <script src="js/custom.js"></script>
+<script>
+function openServiceModal(service) {
+  var content = '';
+  if (service === 'income-tax') {
+    content = `
+      <h2 style='color:#1a3a52;'>Income Tax Services</h2>
+      <p><strong>Why is this required?</strong><br>
+      Every individual, HUF, firm, LLP, and company earning income in India is required to comply with the Income Tax Act, 1961. Timely and accurate tax filing is mandatory to avoid penalties, interest, and prosecution. Tax planning helps optimize your tax outgo and ensures you claim all eligible deductions and exemptions.</p>
+      <p><strong>Relevant Law/Section:</strong><br>
+      Income Tax Act, 1961 (Sections 139 - Return Filing, 80C/80D/80G - Deductions, 234A/B/C - Interest, 271 - Penalties, etc.)</p>
+      <p><strong>How can we help?</strong><br>
+      - Tax planning and advisory for individuals and businesses<br>
+      - Preparation and e-filing of income tax returns<br>
+      - Representation before tax authorities for scrutiny, appeals, and assessments<br>
+      - Guidance on TDS, advance tax, and compliance with latest amendments<br>
+      - Assistance with refunds, rectifications, and notices</p>
+    `;
+  } else if (service === 'gst') {
+    content = `
+      <h2 style='color:#1a3a52;'>GST Services</h2>
+      <p><strong>Why is this required?</strong><br>
+      Goods and Services Tax (GST) is a comprehensive indirect tax levied on supply of goods and services in India. All businesses with turnover above the threshold must register, collect, and remit GST, and file regular returns. Non-compliance can result in heavy penalties and business disruption.</p>
+      <p><strong>Relevant Law/Section:</strong><br>
+      Central Goods and Services Tax Act, 2017 (Sections 22 - Registration, 16 - Input Tax Credit, 39 - Returns, 122 - Penalties, etc.)</p>
+      <p><strong>How can we help?</strong><br>
+      - GST registration and amendments<br>
+      - Monthly/quarterly GST return filing (GSTR-1, GSTR-3B, etc.)<br>
+      - GST audit and annual return (GSTR-9/9C)<br>
+      - Advisory on input tax credit, e-invoicing, and compliance<br>
+      - Handling GST notices, assessments, and appeals</p>
+    `;
+  } else if (service === 'tds') {
+    content = `
+      <h2 style='color:#1a3a52;'>TDS & Fringe Benefit Tax</h2>
+      <p><strong>Why is this required?</strong><br>
+      TDS (Tax Deducted at Source) is a mechanism to collect tax at the source of income. It is mandatory for employers, businesses, and certain individuals to deduct and deposit TDS on specified payments. Fringe Benefit Tax (FBT) was abolished in 2009, but TDS compliance remains crucial to avoid penalties and prosecution.</p>
+      <p><strong>Relevant Law/Section:</strong><br>
+      Income Tax Act, 1961 (Sections 192-195 - TDS on salaries, interest, rent, contracts, etc.; Section 206AA - PAN requirement; Section 271C - Penalties)</p>
+      <p><strong>How can we help?</strong><br>
+      - TDS calculation, deduction, and deposit services<br>
+      - Filing of TDS returns (Form 24Q, 26Q, 27Q, etc.)<br>
+      - Generation of TDS certificates (Form 16/16A)<br>
+      - Advisory on TDS rates, due dates, and compliance<br>
+      - Handling TDS notices and rectifications</p>
+    `;
+  } else if (service === 'accounting') {
+    content = `
+      <h2 style='color:#1a3a52;'>Accounting Services</h2>
+      <p><strong>Why is this required?</strong><br>
+      Accurate accounting is the backbone of any business. It is required for statutory compliance, financial planning, and decision-making. Indian Accounting Standards (Ind-AS) and Companies Act mandate proper maintenance of books and timely preparation of financial statements.</p>
+      <p><strong>Relevant Law/Section:</strong><br>
+      Companies Act, 2013 (Section 128 - Books of Account), Indian Accounting Standards (Ind-AS), Income Tax Act (Section 44AA - Maintenance of books)</p>
+      <p><strong>How can we help?</strong><br>
+      - Bookkeeping and accounts outsourcing<br>
+      - Preparation of financial statements as per Ind-AS<br>
+      - MIS reporting and analysis<br>
+      - Reconciliation and audit support<br>
+      - Setting up accounting systems and controls</p>
+    `;
+  } else if (service === 'corporate') {
+    content = `
+      <h2 style='color:#1a3a52;'>Corporate Services</h2>
+      <p><strong>Why is this required?</strong><br>
+      Companies, LLPs, and partnerships in India must comply with various corporate laws and regulations. This includes company registration, secretarial compliance, annual filings, and corporate governance. Non-compliance can lead to penalties, disqualification, and legal action.</p>
+      <p><strong>Relevant Law/Section:</strong><br>
+      Companies Act, 2013 (Sections 2(20), 12, 92, 134, 135, 139, etc.), LLP Act, 2008, FEMA, SEBI regulations</p>
+      <p><strong>How can we help?</strong><br>
+      - Company/LLP/Partnership registration<br>
+      - Secretarial compliance and annual filings<br>
+      - Corporate governance advisory<br>
+      - FEMA, RBI, and SEBI compliance<br>
+      - Drafting and vetting of legal documents</p>
+    `;
+  } else if (service === 'finance') {
+    content = `
+      <h2 style='color:#1a3a52;'>Corporate Finance</h2>
+      <p><strong>Why is this required?</strong><br>
+      Corporate finance is essential for business growth, expansion, and sustainability. It involves raising capital, managing investments, mergers & acquisitions, and financial restructuring. Proper financial planning ensures optimal use of resources and risk management.</p>
+      <p><strong>Relevant Law/Section:</strong><br>
+      Companies Act, 2013 (Sections 62 - Further issue of share capital, 230-232 - Mergers & Amalgamations), SEBI (LODR), RBI guidelines</p>
+      <p><strong>How can we help?</strong><br>
+      - Project financing and fundraising support<br>
+      - M&A advisory and due diligence<br>
+      - Financial restructuring and turnaround<br>
+      - Business valuations and feasibility studies<br>
+      - Strategic financial planning and analysis</p>
+    `;
+  } else {
+    content = '<p>Service details coming soon.</p>';
+  }
+  document.getElementById('serviceModalBody').innerHTML = content;
+  document.getElementById('serviceModal').style.display = 'flex';
+}
+function closeServiceModal() {
+  document.getElementById('serviceModal').style.display = 'none';
+}
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
 
 </body>
 </html>

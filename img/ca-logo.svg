@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Background Circle -->
+  <circle cx="100" cy="100" r="95" fill="#1a3a52" stroke="#2c5aa0" stroke-width="3"/>
+  
+  <!-- Inner Circle with Gradient Effect -->
+  <circle cx="100" cy="100" r="85" fill="#20435c"/>
+  
+  <!-- CA Letters -->
+  <g transform="translate(100, 100)">
+    <!-- Large CA Text -->
+    <text x="0" y="30" font-family="Arial, Helvetica, sans-serif" font-size="70" font-weight="bold" text-anchor="middle" fill="#ffffff">CA</text>
+  </g>
+  
+  <!-- Decorative Bottom Line -->
+  <line x1="50" y1="150" x2="150" y2="150" stroke="#4a9fd8" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Corner Decorations -->
+  <circle cx="30" cy="30" r="4" fill="#4a9fd8"/>
+  <circle cx="170" cy="30" r="4" fill="#4a9fd8"/>
+  <circle cx="30" cy="170" r="4" fill="#4a9fd8"/>
+  <circle cx="170" cy="170" r="4" fill="#4a9fd8"/>
+  
+  <!-- Outer Ring -->
+  <circle cx="100" cy="100" r="92" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.3"/>
+</svg>
